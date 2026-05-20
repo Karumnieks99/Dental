@@ -5,7 +5,9 @@ const results = [
     treatment: 'Zobu balināšana',
     detail: 'ZOOM procedūra · 1 vizīte',
     outcome: '+8 toņi gaišāki',
-    img: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=800&q=88&fit=crop&crop=faces',
+    // Split before/after — same close-up, CSS filter yellows the left half
+    img: 'https://images.unsplash.com/photo-1677026010083-78ec7f1b84ed?w=800&q=90&fit=crop',
+    split: true,
   },
   {
     treatment: 'Porcelāna venīri',
@@ -20,6 +22,64 @@ const results = [
     img: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=88&fit=crop',
   },
 ]
+
+function SplitCard({ r }) {
+  return (
+    <div className="relative overflow-hidden aspect-[4/5] bg-warm-gray">
+      {/* After — full bright image */}
+      <img
+        src={r.img}
+        alt={`${r.treatment} — pēc`}
+        className="absolute inset-0 w-full h-full object-cover"
+        loading="lazy"
+      />
+      {/* Before — same image, yellowed, clipped to left half */}
+      <img
+        src={r.img}
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{
+          filter: 'sepia(65%) brightness(70%) contrast(112%) saturate(0.7)',
+          clipPath: 'inset(0 50% 0 0)',
+        }}
+        loading="lazy"
+      />
+      {/* Divider line */}
+      <div className="absolute inset-y-0 left-1/2 -translate-x-px w-0.5 bg-white/90 z-10" />
+      {/* Labels */}
+      <span className="absolute top-3 left-3 bg-navy/80 text-cream font-sans text-[10px] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 z-10">
+        Pirms
+      </span>
+      <span className="absolute top-3 right-3 bg-gold text-cream font-sans text-[10px] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 z-10">
+        Pēc
+      </span>
+      {/* Outcome badge */}
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/75 to-transparent px-5 pt-10 pb-5 z-10">
+        <p className="font-sans text-[11px] font-semibold tracking-[0.16em] uppercase text-gold">
+          {r.outcome}
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function RegularCard({ r }) {
+  return (
+    <div className="relative overflow-hidden aspect-[4/5] bg-warm-gray group-hover:scale-105 transition-transform duration-700">
+      <img
+        src={r.img}
+        alt={r.treatment}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="lazy"
+      />
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/70 to-transparent px-5 pt-10 pb-5">
+        <p className="font-sans text-[11px] font-semibold tracking-[0.16em] uppercase text-gold">
+          {r.outcome}
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export default function BeforeAfter() {
   const ref = useScrollAnimation()
@@ -51,21 +111,7 @@ export default function BeforeAfter() {
               key={r.treatment}
               className={`animate-on-scroll delay-${i * 200} group flex flex-col`}
             >
-              {/* Image */}
-              <div className="relative overflow-hidden aspect-[4/5] bg-warm-gray">
-                <img
-                  src={r.img}
-                  alt={r.treatment}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                {/* Outcome badge */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/70 to-transparent px-5 pt-10 pb-5">
-                  <p className="font-sans text-[11px] font-semibold tracking-[0.16em] uppercase text-gold">
-                    {r.outcome}
-                  </p>
-                </div>
-              </div>
+              {r.split ? <SplitCard r={r} /> : <RegularCard r={r} />}
 
               {/* Info */}
               <div className="pt-5 pb-2 border-b border-warm-gray">

@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useRef, useState, useCallback } from 'react'
 
 const results = [
   {
@@ -24,28 +25,68 @@ const results = [
 ]
 
 function SplitCard({ r }) {
+  const containerRef = useRef(null)
+  const [splitPct, setSplitPct] = useState(50)
+
+  const updateSplit = useCallback((clientX) => {
+    const rect = containerRef.current?.getBoundingClientRect()
+    if (!rect) return
+    const pct = Math.min(100, Math.max(0, ((clientX - rect.left) / rect.width) * 100))
+    setSplitPct(pct)
+  }, [])
+
+  const handleMouseMove = (e) => {
+    if (e.buttons !== 1) return
+    updateSplit(e.clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    e.preventDefault()
+    updateSplit(e.touches[0].clientX)
+  }
+
   return (
-    <div className="relative overflow-hidden aspect-[4/5] bg-warm-gray">
+    <div
+      ref={containerRef}
+      className="relative overflow-hidden aspect-[4/5] bg-warm-gray cursor-col-resize select-none"
+      onMouseMove={handleMouseMove}
+      onTouchMove={handleTouchMove}
+      onTouchStart={(e) => updateSplit(e.touches[0].clientX)}
+    >
       {/* After — full bright image */}
       <img
         src={r.img}
         alt={`${r.treatment} — pēc`}
         className="absolute inset-0 w-full h-full object-cover"
         loading="lazy"
+        draggable="false"
       />
-      {/* Before — same image, yellowed, clipped to left half */}
+      {/* Before — same image, yellowed, clipped to the left of the split */}
       <img
         src={r.img}
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           filter: 'sepia(65%) brightness(70%) contrast(112%) saturate(0.7)',
-          clipPath: 'inset(0 50% 0 0)',
+          clipPath: `inset(0 ${100 - splitPct}% 0 0)`,
         }}
         loading="lazy"
+        draggable="false"
       />
       {/* Divider line */}
-      <div className="absolute inset-y-0 left-1/2 -translate-x-px w-0.5 bg-white/90 z-10" />
+      <div
+        className="absolute inset-y-0 w-0.5 bg-white/90 z-10 -translate-x-px"
+        style={{ left: `${splitPct}%` }}
+      />
+      {/* Drag handle */}
+      <div
+        className="absolute top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center shadow-md pointer-events-none"
+        style={{ left: `${splitPct}%` }}
+      >
+        <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4">
+          <path d="M7 5L3 10L7 15M13 5L17 10L13 15" stroke="#1a2744" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
       {/* Labels */}
       <span className="absolute top-3 left-3 bg-navy/80 text-cream font-sans text-[10px] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 z-10">
         Pirms
@@ -105,7 +146,7 @@ export default function BeforeAfter() {
         </div>
 
         {/* Results grid */}
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {results.map((r, i) => (
             <div
               key={r.treatment}
@@ -129,7 +170,7 @@ export default function BeforeAfter() {
           </p>
           <a
             href="#contact"
-            className="font-sans text-sm font-semibold text-gold tracking-wide uppercase hover:text-navy transition-colors duration-200"
+            className="font-sans text-sm font-semibold text-gold tracking-wide uppercase hover:text-navy transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold rounded-sm"
           >
             Pierakstīties konsultācijai →
           </a>

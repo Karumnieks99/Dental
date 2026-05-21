@@ -73,7 +73,7 @@ export default function Contact() {
                   <div>
                     <p className="font-sans text-[11px] text-cream/40 font-semibold tracking-[0.12em] uppercase mb-0.5">{label}</p>
                     {link ? (
-                      <a href={link} className="font-sans text-cream/80 text-sm hover:text-cream transition-colors duration-200">
+                      <a href={link} className="font-sans text-cream/80 text-sm hover:text-cream transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cream/50 rounded-sm">
                         {value}
                       </a>
                     ) : (
@@ -90,9 +90,10 @@ export default function Contact() {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-4 bg-[#25D366] text-white font-sans text-sm font-semibold tracking-wide hover:bg-[#1dba58] transition-colors duration-200"
+                aria-label="Rakstīt mums WhatsApp"
+                className="inline-flex items-center gap-3 px-6 py-4 bg-[#25D366] text-white font-sans text-sm font-semibold tracking-wide hover:bg-[#1dba58] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
               >
-                <MessageCircle size={18} />
+                <MessageCircle size={18} aria-hidden="true" />
                 Rakstīt WhatsApp
               </a>
             </div>
@@ -116,7 +117,7 @@ export default function Contact() {
             {sent ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-16">
                 <div className="w-16 h-16 flex items-center justify-center border border-gold mb-6">
-                  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7">
+                  <svg viewBox="0 0 32 32" fill="none" className="w-7 h-7" aria-hidden="true" focusable="false">
                     <path d="M6 16L13 23L26 9" stroke="#C4975A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
@@ -131,41 +132,44 @@ export default function Contact() {
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
+                    <label htmlFor="contact-name" className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
                       Vārds, Uzvārds *
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
                       placeholder="Anna Bērziņa"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="w-full bg-transparent border border-cream/15 text-cream placeholder:text-cream/25 font-sans text-sm px-4 py-3 outline-none focus:border-gold transition-colors duration-200"
+                      className="w-full bg-transparent border border-cream/15 text-cream placeholder:text-cream/25 font-sans text-sm px-4 py-3.5 min-h-[44px] outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200"
                     />
                   </div>
                   <div>
-                    <label className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
+                    <label htmlFor="contact-phone" className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
                       Tālrunis *
                     </label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       required
                       placeholder="+371 2000 0000"
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      className="w-full bg-transparent border border-cream/15 text-cream placeholder:text-cream/25 font-sans text-sm px-4 py-3 outline-none focus:border-gold transition-colors duration-200"
+                      className="w-full bg-transparent border border-cream/15 text-cream placeholder:text-cream/25 font-sans text-sm px-4 py-3.5 min-h-[44px] outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
+                  <label htmlFor="contact-service" className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
                     Pakalpojums
                   </label>
                   <select
+                    id="contact-service"
                     value={form.service}
                     onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className="w-full bg-navy border border-cream/15 text-cream font-sans text-sm px-4 py-3 outline-none focus:border-gold transition-colors duration-200 appearance-none cursor-pointer"
+                    className="w-full bg-navy border border-cream/15 text-cream font-sans text-sm px-4 py-3.5 min-h-[44px] outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200 appearance-none cursor-pointer"
                   >
                     <option value="">Izvēlēties pakalpojumu...</option>
                     <option value="whitening">Zobu balināšana</option>
@@ -178,21 +182,22 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
+                  <label htmlFor="contact-message" className="font-sans text-[11px] text-cream/50 font-semibold tracking-[0.1em] uppercase block mb-2">
                     Ziņojums
                   </label>
                   <textarea
+                    id="contact-message"
                     rows={4}
                     placeholder="Papildu jautājumi vai komentāri..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full bg-transparent border border-cream/15 text-cream placeholder:text-cream/25 font-sans text-sm px-4 py-3 outline-none focus:border-gold transition-colors duration-200 resize-none"
+                    className="w-full bg-transparent border border-cream/15 text-cream placeholder:text-cream/25 font-sans text-sm px-4 py-3.5 outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gold text-navy font-sans text-sm font-semibold tracking-wide uppercase hover:bg-gold/85 transition-colors duration-200 mt-2"
+                  className="w-full py-4 bg-gold text-navy font-sans text-sm font-semibold tracking-wide uppercase hover:bg-gold/85 transition-colors duration-200 mt-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
                 >
                   Nosūtīt pieteikumu
                 </button>

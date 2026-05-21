@@ -1,13 +1,15 @@
+import { lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import About from './components/About'
-import WhyUs from './components/WhyUs'
-import BeforeAfter from './components/BeforeAfter'
-import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+
+const WhyUs = lazy(() => import('./components/WhyUs'))
+const BeforeAfter = lazy(() => import('./components/BeforeAfter'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
 
 export default function App() {
   return (
@@ -17,9 +19,11 @@ export default function App() {
         <Hero />
         <Services />
         <About />
-        <WhyUs />
-        <BeforeAfter />
-        <Testimonials />
+        <Suspense fallback={null}>
+          <WhyUs />
+          <BeforeAfter />
+          <Testimonials />
+        </Suspense>
         <Contact />
       </main>
       <Footer />

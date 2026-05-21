@@ -3,7 +3,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 const services = [
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" aria-hidden="true" focusable="false">
         <circle cx="20" cy="20" r="14" stroke="#C4975A" strokeWidth="1.5"/>
         <path d="M14 20C14 20 16 24 20 24C24 24 26 20 26 20" stroke="#C4975A" strokeWidth="1.5" strokeLinecap="round"/>
         <path d="M20 14V16M16 15.3L17.4 16.8M24 15.3L22.6 16.8" stroke="#C4975A" strokeWidth="1.5" strokeLinecap="round"/>
@@ -16,7 +16,7 @@ const services = [
   },
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" aria-hidden="true" focusable="false">
         <rect x="16" y="8" width="8" height="14" rx="1" stroke="#C4975A" strokeWidth="1.5"/>
         <path d="M16 18H24" stroke="#C4975A" strokeWidth="1.5"/>
         <path d="M20 22V32" stroke="#C4975A" strokeWidth="1.5" strokeLinecap="round"/>
@@ -30,7 +30,7 @@ const services = [
   },
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" aria-hidden="true" focusable="false">
         <path d="M13 12C13 12 11 14 11 18C11 22 14 25 17 26.5C18.5 27.3 19 29 20 31C21 29 21.5 27.3 23 26.5C26 25 29 22 29 18C29 14 27 12 24 12C22.5 12 21.5 13 21 14C20.5 13 19.5 12 18 12H13Z" stroke="#C4975A" strokeWidth="1.5" strokeLinejoin="round"/>
       </svg>
     ),
@@ -41,7 +41,7 @@ const services = [
   },
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" aria-hidden="true" focusable="false">
         <path d="M12 28L16 14" stroke="#C4975A" strokeWidth="1.5" strokeLinecap="round"/>
         <path d="M16 14C16 14 17 12 20 12C23 12 24 14 24 14" stroke="#C4975A" strokeWidth="1.5" strokeLinecap="round"/>
         <path d="M24 14L28 28" stroke="#C4975A" strokeWidth="1.5" strokeLinecap="round"/>
@@ -56,7 +56,7 @@ const services = [
   },
   {
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" aria-hidden="true" focusable="false">
         <rect x="13" y="10" width="14" height="18" rx="2" stroke="#C4975A" strokeWidth="1.5"/>
         <path d="M17 16H23M17 20H21" stroke="#C4975A" strokeWidth="1.5" strokeLinecap="round"/>
         <circle cx="26" cy="27" r="5" fill="#FAFAF7" stroke="#C4975A" strokeWidth="1.5"/>
@@ -93,7 +93,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-warm-gray">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-warm-gray">
           {services.map((s, i) => (
             <div
               key={s.name}
@@ -111,7 +111,7 @@ export default function Services() {
                 <span className="font-serif text-lg text-navy font-medium">{s.price}</span>
                 <a
                   href="#contact"
-                  className="font-sans text-xs font-semibold text-gold tracking-wide uppercase hover:text-navy transition-colors duration-200"
+                  className="font-sans text-xs font-semibold text-gold tracking-wide uppercase hover:text-navy transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gold rounded-sm"
                 >
                   Pierakstīties →
                 </a>
@@ -132,7 +132,7 @@ export default function Services() {
             </div>
             <a
               href="#contact"
-              className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold tracking-wide uppercase hover:gap-3 transition-all duration-200"
+              className="mt-8 inline-flex items-center gap-2 font-sans text-sm font-semibold text-gold tracking-wide uppercase hover:gap-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gold rounded-sm"
             >
               Sazināties →
             </a>

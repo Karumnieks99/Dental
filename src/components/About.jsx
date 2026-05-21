@@ -79,7 +79,7 @@ export default function About() {
             <div className="animate-on-scroll delay-400 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="px-7 py-3.5 bg-navy text-cream font-sans text-sm font-medium tracking-wide hover:bg-navy/85 transition-colors duration-200"
+                className="px-7 py-3.5 bg-navy text-cream font-sans text-sm font-medium tracking-wide hover:bg-navy/85 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy"
               >
                 Pierakstīties pie Dr. Bērziņas
               </a>

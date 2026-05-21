@@ -12,10 +12,10 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Rakstīt WhatsApp"
-      className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:bg-[#1dba58] transition-colors duration-200 md:hidden"
+      className="fixed bottom-8 right-5 z-50 w-14 h-14 bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:bg-[#1dba58] transition-colors duration-200 md:hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]"
       style={{ animation: 'pulse-wa 2.5s ease-in-out infinite' }}
     >
-      <MessageCircle size={26} />
+      <MessageCircle size={26} aria-hidden="true" />
     </a>
   )
 }

@@ -2,9 +2,9 @@ export default function Footer() {
   return (
     <footer className="bg-navy border-t border-cream/10 py-8">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5" aria-label="Smile Studio Rīga">
           <span className="w-6 h-6 flex items-center justify-center">
-            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" aria-hidden="true" focusable="false">
               <path d="M8 6C8 6 6 8.5 6 12.5C6 16.5 8.5 19 12 21C13.5 21.8 14 23 14 25C14 23 14.5 21.8 16 21C19.5 19 22 16.5 22 12.5C22 8.5 20 6 17 6C15.5 6 14.5 7 14 8C13.5 7 12.5 6 11 6H8Z" fill="#C4975A"/>
             </svg>
           </span>
@@ -19,7 +19,7 @@ export default function Footer() {
           <span className="font-sans text-xs text-cream/40">
             Privātuma politika
           </span>
-          <a href="#contact" className="font-sans text-xs text-cream/40 hover:text-cream/70 transition-colors duration-200">
+          <a href="#contact" className="font-sans text-xs text-cream/40 hover:text-cream/70 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cream/50 rounded-sm">
             Kontakti
           </a>
         </div>

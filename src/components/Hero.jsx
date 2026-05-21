@@ -33,13 +33,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-3">
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-7 py-3.5 bg-navy text-cream font-sans text-[13px] font-medium tracking-widest uppercase hover:bg-navy/85 transition-colors duration-200"
+            className="inline-flex items-center justify-center w-full sm:w-auto min-h-[44px] px-7 py-3.5 bg-navy text-cream font-sans text-[13px] font-medium tracking-widest uppercase hover:bg-navy/85 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy"
           >
             Pierakstīties
           </a>
           <a
             href="#services"
-            className="inline-flex items-center justify-center px-7 py-3.5 border border-navy/20 text-navy font-sans text-[13px] font-medium tracking-widest uppercase hover:border-navy/45 transition-colors duration-200"
+            className="inline-flex items-center justify-center w-full sm:w-auto min-h-[44px] px-7 py-3.5 border border-navy/20 text-navy font-sans text-[13px] font-medium tracking-widest uppercase hover:border-navy/45 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-navy"
           >
             Pakalpojumi
           </a>

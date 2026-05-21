@@ -11,6 +11,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [lang, setLang] = useState('LV')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -49,6 +50,29 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+          <div className="flex items-center gap-1 font-sans text-xs font-semibold tracking-[0.12em]">
+            <button
+              onClick={() => setLang('LV')}
+              className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
+                lang === 'LV'
+                  ? 'text-navy border-b border-gold pb-px'
+                  : 'text-navy/40 hover:text-navy/70'
+              }`}
+            >
+              LV
+            </button>
+            <span className="text-navy/20">/</span>
+            <button
+              onClick={() => setLang('EN')}
+              className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
+                lang === 'EN'
+                  ? 'text-navy border-b border-gold pb-px'
+                  : 'text-navy/40 hover:text-navy/70'
+              }`}
+            >
+              EN
+            </button>
+          </div>
           <a
             href="#contact"
             className="ml-2 px-5 py-2.5 bg-navy text-cream font-sans text-sm font-medium tracking-wide hover:bg-navy/80 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy"
@@ -82,6 +106,29 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
+          <div className="flex items-center gap-2 font-sans text-sm font-semibold tracking-[0.12em] pt-1">
+            <button
+              onClick={() => setLang('LV')}
+              className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
+                lang === 'LV'
+                  ? 'text-navy border-b border-gold pb-px'
+                  : 'text-navy/40 hover:text-navy/70'
+              }`}
+            >
+              LV
+            </button>
+            <span className="text-navy/20">/</span>
+            <button
+              onClick={() => setLang('EN')}
+              className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
+                lang === 'EN'
+                  ? 'text-navy border-b border-gold pb-px'
+                  : 'text-navy/40 hover:text-navy/70'
+              }`}
+            >
+              EN
+            </button>
+          </div>
           <a
             href="#contact"
             className="mt-2 px-5 py-3 bg-navy text-cream font-sans text-sm font-medium text-center tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy"

@@ -53,6 +53,7 @@ export default function Navbar() {
           <div className="flex items-center gap-1 font-sans text-xs font-semibold tracking-[0.12em]">
             <button
               onClick={() => setLang('LV')}
+              aria-pressed={lang === 'LV'}
               className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
                 lang === 'LV'
                   ? 'text-navy border-b border-gold pb-px'
@@ -64,6 +65,7 @@ export default function Navbar() {
             <span className="text-navy/20">/</span>
             <button
               onClick={() => setLang('EN')}
+              aria-pressed={lang === 'EN'}
               className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
                 lang === 'EN'
                   ? 'text-navy border-b border-gold pb-px'
@@ -109,6 +111,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 font-sans text-sm font-semibold tracking-[0.12em] pt-1">
             <button
               onClick={() => setLang('LV')}
+              aria-pressed={lang === 'LV'}
               className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
                 lang === 'LV'
                   ? 'text-navy border-b border-gold pb-px'
@@ -120,6 +123,7 @@ export default function Navbar() {
             <span className="text-navy/20">/</span>
             <button
               onClick={() => setLang('EN')}
+              aria-pressed={lang === 'EN'}
               className={`px-0.5 focus:outline-none focus:ring-2 focus:ring-navy rounded-sm transition-colors duration-200 ${
                 lang === 'EN'
                   ? 'text-navy border-b border-gold pb-px'

@@ -1,4 +1,29 @@
-export default function Hero() {
+import { copyFor } from '../i18n'
+
+const heroCopy = {
+  lv: {
+    eyebrow: 'Smile Studio · Rīga',
+    title: 'Jūsu smaids —',
+    titleEmphasis: 'mūsu māksla.',
+    text: 'Estētiskā zobārstniecība Rīgā.',
+    subtext: 'Pierakstieties uz konsultāciju.',
+    primaryCta: 'Pierakstīties',
+    secondaryCta: 'Pakalpojumi',
+  },
+  en: {
+    eyebrow: 'Smile Studio · Riga',
+    title: 'Your smile —',
+    titleEmphasis: 'our art.',
+    text: 'Aesthetic dentistry in Riga.',
+    subtext: 'Book a consultation.',
+    primaryCta: 'Book a visit',
+    secondaryCta: 'Services',
+  },
+}
+
+export default function Hero({ lang }) {
+  const copy = copyFor(heroCopy, lang)
+
   return (
     <section
       id="hero"
@@ -17,31 +42,31 @@ export default function Hero() {
       />
       <div className="relative max-w-7xl mx-auto px-8 md:px-16 lg:px-24 w-full pt-24 pb-16">
         <p className="font-sans text-[11px] font-medium tracking-[0.28em] uppercase text-white/35 mb-12">
-          Smile Studio · Rīga
+          {copy.eyebrow}
         </p>
         <h1
           className="font-display font-light text-white mb-8 leading-[1.05]"
           style={{ fontSize: 'clamp(3rem, 7vw, 6rem)' }}
         >
-          Jūsu smaids —<br />
-          <span className="italic">mūsu māksla.</span>
+          {copy.title}<br />
+          <span className="italic">{copy.titleEmphasis}</span>
         </h1>
         <p className="font-sans text-white/50 text-base font-light tracking-wide mb-14 max-w-sm leading-relaxed">
-          Estētiskā zobārstniecība Rīgā.<br />
-          Pierakstieties konsultācijai.
+          {copy.text}<br />
+          {copy.subtext}
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <a
             href="#contact"
             className="inline-flex items-center justify-center w-full sm:w-auto min-h-[44px] px-7 py-3.5 bg-gold text-navy font-sans text-[13px] font-medium tracking-widest uppercase hover:bg-gold/85 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
           >
-            Pierakstīties
+            {copy.primaryCta}
           </a>
           <a
             href="#services"
             className="inline-flex items-center justify-center w-full sm:w-auto min-h-[44px] px-7 py-3.5 border border-white/30 text-white font-sans text-[13px] font-medium tracking-widest uppercase hover:border-white/55 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white"
           >
-            Pakalpojumi
+            {copy.secondaryCta}
           </a>
         </div>
       </div>

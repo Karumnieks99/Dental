@@ -1,27 +1,27 @@
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
+﻿import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { Star } from 'lucide-react'
 
 const reviews = [
   {
-    name: 'Marta Kalniņa',
+    name: 'Marta KalniÅ†a',
     date: 'Marts 2024',
-    treatment: 'Porcelāna venīri',
-    text: 'Dr. Bērziņa ir brīnišķīga speciāliste. Pirms tam es baidījos no zobārsta, bet viņas klīnikā viss pagāja absolūti nesāpīgi un komfortabli. Venīri izskatās dabiski un skaisti — labāk, nekā cerēju.',
+    treatment: 'PorcelÄna venÄ«ri',
+    text: 'Dr. BÄ“rziÅ†a ir brÄ«niÅ¡Ä·Ä«ga speciÄliste. Pirms tam es baidÄ«jos no zobÄrsta, bet viÅ†as klÄ«nikÄ viss pagÄja absolÅ«ti nesÄpÄ«gi un komfortabli. VenÄ«ri izskatÄs dabiski un skaisti â€” labÄk, nekÄ cerÄ“ju.',
     rating: 5,
   },
   {
-    name: 'Jānis Ozoliņš',
-    date: 'Janvāris 2024',
+    name: 'JÄnis OzoliÅ†Å¡',
+    date: 'JanvÄris 2024',
     treatment: 'Zobu implants',
-    text: 'Pēc implanta uzstādīšanas Smile Studio klīnikā esmu pilnīgi apmierināts. Visa procedūra bija profesionāla, personāls laipns un komunikatīvs. Implants lieliski iekļāvies — nekādas komplikācijas.',
-    rating: 5,
+    text: 'PÄ“c implanta uzstÄdÄ«Å¡anas Smile Studio klÄ«nikÄ esmu pilnÄ«gi apmierinÄts. Visa procedÅ«ra bija profesionÄla, personÄls laipns un komunikatÄ«vs. Implants lieliski iekÄ¼Ävies â€” nekÄdas komplikÄcijas.',
+    rating: 4,
   },
   {
-    name: 'Elīna Freimane',
-    date: 'Aprīlis 2024',
-    treatment: 'ZOOM Balināšana',
-    text: 'Pirmo reizi mūžā zobi patiešām izskatās tik balti! Balināšana aizņēma mazāk nekā divas stundas, un rezultāts ir iespaidīgs. Arī cena ir taisnīga salīdzinājumā ar citām klīnikām Rīgā.',
-    rating: 5,
+    name: 'ElÄ«na Freimane',
+    date: 'AprÄ«lis 2024',
+    treatment: 'ZOOM BalinÄÅ¡ana',
+    text: 'Pirmo reizi mÅ«Å¾Ä zobi patieÅ¡Äm izskatÄs tik balti! BalinÄÅ¡ana aizÅ†Ä“ma mazÄk nekÄ divas stundas, un rezultÄts ir iespaidÄ«gs. ArÄ« cena ir taisnÄ«ga salÄ«dzinÄjumÄ ar citÄm klÄ«nikÄm RÄ«gÄ.',
+    rating: 4,
   },
 ]
 
@@ -49,11 +49,11 @@ export default function Testimonials() {
             <span className="w-6 h-px bg-gold" />
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-navy font-medium mb-4">
-            Ko saka mūsu pacienti
+            Ko saka mÅ«su pacienti
           </h2>
           <div className="flex items-center gap-2 mt-2">
             <Stars count={5} />
-            <span className="font-sans text-sm text-navy/50">4.9 / 5 — balstīts uz 180+ atsauksmēm</span>
+            <span className="font-sans text-sm text-navy/50">4.9 / 5 â€” balstÄ«ts uz 180+ atsauksmÄ“m</span>
           </div>
         </div>
 
@@ -102,3 +102,5 @@ export default function Testimonials() {
     </section>
   )
 }
+
+

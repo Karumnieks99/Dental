@@ -15,12 +15,14 @@ const results = [
     detail: '8 venīri · 2 vizītes',
     outcome: 'Pilnīga smaida korekcija',
     img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=88&fit=crop&crop=faces',
+    split: true,
   },
   {
     treatment: 'Implants + kronis',
     detail: 'Straumann implants · 3 mēneši',
     outcome: 'Pilnvērtīga zobu atjaunošana',
     img: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=88&fit=crop',
+    split: true,
   },
 ]
 

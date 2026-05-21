@@ -6,6 +6,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
+import FloatingCTA from './components/FloatingCTA'
 
 const WhyUs = lazy(() => import('./components/WhyUs'))
 const BeforeAfter = lazy(() => import('./components/BeforeAfter'))
@@ -28,6 +29,7 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <FloatingCTA />
     </>
   )
 }

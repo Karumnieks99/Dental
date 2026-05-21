@@ -14,7 +14,7 @@ const reviews = [
     date: 'JanvÄris 2024',
     treatment: 'Zobu implants',
     text: 'PÄ“c implanta uzstÄdÄ«Å¡anas Smile Studio klÄ«nikÄ esmu pilnÄ«gi apmierinÄts. Visa procedÅ«ra bija profesionÄla, personÄls laipns un komunikatÄ«vs. Implants lieliski iekÄ¼Ävies â€” nekÄdas komplikÄcijas.',
-    rating: 4,
+    rating: 5,
   },
   {
     name: 'ElÄ«na Freimane',
